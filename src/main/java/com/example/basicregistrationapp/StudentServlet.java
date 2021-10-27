@@ -36,6 +36,30 @@ public class StudentServlet extends HttpServlet {
         System.out.println("password:: " + password);
     }
 
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException{
+        String firstName = req.getParameter("firstName");
+        String lastName = req.getParameter("lastName");
+        String emailId = req.getParameter("emailId");
+        String password = req.getParameter("password");
+
+        resp.setContentType("text/html");
+        PrintWriter pw = resp.getWriter();
+        pw.print("<html><body>");
+        pw.print("<h1>Student Registration from Data</h1>");
+        pw.print("<p>firstName:: " + firstName + "</p>");
+        pw.print("<p>lastName:: " + lastName + "</p>");
+        pw.print("<p>Email ID:: " + emailId + "</p>");
+        pw.print("<p>password:: " + password + "</p>");
+        pw.print("</body></html>");
+        pw.close();
+
+        System.out.println("This information are based on POST request:");
+        System.out.println("firstName:: " + firstName);
+        System.out.println("lastName:: " + lastName);
+        System.out.println("Email ID:: " + emailId);
+        System.out.println("password:: " + password);
+    }
 
 
 }
